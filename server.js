@@ -1,18 +1,15 @@
 const express = require('express')
 
-// const  dotenv = require('dotenv');
-
-// console.log(process.env);
-
 const dev = process.env.NODE_ENV !== 'production'
 const port = process.env.PORT || 3000
 const path = require("path");
 const fs = require("fs");
 
-const server = express()
+const server = express();
 
-server.use(express.static('static'))
-server.use(express.static('dist'))
+//server.use(express.static('static'))
+//server.use(express.static('dist'))
+server.use('/dist', express.static(path.join(__dirname, 'dist')))
 
 
 server.get('/', (req, res) => {
