@@ -4,8 +4,8 @@ export default function speakers(state = [], action) {
     case "FOLLOW-SPEAKER":
       console.log("FOLLOW-SPEAKER is running");
       return [...state, {
-        id:"11",
-        "name":"test"
+        id:Math.random()*100,
+        "name":Math.random()*100
       }];
       // return state;
       break;
@@ -13,8 +13,8 @@ export default function speakers(state = [], action) {
         console.log("ADD speaker is running");
         console.log(state);
         return [...state, {
-          id:"11",
-          "name":"test"
+          id:Math.random()*100,
+          "name":Math.random()*100
         }];
         break;
     default:

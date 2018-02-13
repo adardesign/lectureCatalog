@@ -1,10 +1,12 @@
+
+
 export default function categories(state = [], action) {
   console.log("categories  STATE-IS---",JSON.stringify(state), action);
   switch (action.type) {
     case "FOLLOW-SPEAKER":
       console.log("FOLLOW-SPEAKER is running");
       return [...state, {
-        id:"11",
+        id:Math.random()*100,
         "name":"test"
       }];
       // return state;
@@ -13,7 +15,7 @@ export default function categories(state = [], action) {
         console.log("ADD speaker is running");
         console.log(state);
         return [...state, {
-          id:"11",
+          id:Math.random()*100,
           "name":"test"
         }];
         break;
