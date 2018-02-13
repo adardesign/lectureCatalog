@@ -42,5 +42,5 @@ export const store = createStore(
 );
 
 // Create an enhanced history that syncs navigation events with the store
-export const history = syncHistoryWithStore(browserHistory, store)
+export const history = syncHistoryWithStore(browserHistory, store);
 
