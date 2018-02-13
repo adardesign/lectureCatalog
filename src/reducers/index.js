@@ -6,8 +6,8 @@ import categories from "./categories";
 
 const rootReducer = combineReducers({
     speakers, 
-    categories
-  },
-  router:routerReducer);
+    categories,
+    routing:routerReducer
+  });
 
 export default rootReducer;

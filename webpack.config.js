@@ -18,8 +18,9 @@ module.exports = {
   entry: path.join(__dirname, './src/index.js'),
   output: {
     path: paths.DIST,
-    filename: 'app.bundle.js',
+    filename: 'app.bundle.js'
   },
+  devtool: 'source-map',
   // Tell webpack to use html plugin
   plugins: [
     // new HtmlWebpackPlugin({

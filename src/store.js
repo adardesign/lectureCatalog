@@ -1,9 +1,19 @@
-import { createStore, compose } from "redux";
-import { syncHistoryWithStore } from "react-router-redux";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+import { Router, Route, browserHistory } from 'react-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
-import { broswerHistory } from "react-router";
+import reducers from '<project-path>/reducers'
 
-import rootReducer from "./reducers";
+// Add the reducer to your store on the `routing` key
+const store = createStore(
+  combineReducers({
+    ...reducers,
+    routing: routerReducer
+  })
+)
 
 const defaultState = {
 	speakers:[
@@ -17,11 +27,15 @@ const defaultState = {
 			name:"Rabbi Avrahm M. Malach",
 			lectures:515
 		}
-	]
+	],
+  categories:[
+    {
+      id:"1",
+      name:"parsha",
+      img:"/parsha.jpg"
+    }
+  ]
 };
 
-
-const store = createStore(rootReducer, defaultState);
-export const history = syncHistoryWithStore(broswerHistory, defaultState);
-
-export default store;
+export const store = createStore(rootReducer, defaultState);
+const history = syncHistoryWithStore(browserHistory, store)
