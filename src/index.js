@@ -1,25 +1,9 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from 'react-router'
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
-import speakers from "./reducers/speakers"; 
-import categories from "./reducers/categories";
-
-// Add the reducer to your store on the `routing` key
-const store = createStore(
-  combineReducers({
-    speakers,
-    categories,
-    routing: routerReducer
-  })
-)
-
-// Create an enhanced history that syncs navigation events with the store
-const history = syncHistoryWithStore(browserHistory, store)
-
+import { store, history } from './store';
 
 
 
@@ -33,6 +17,7 @@ import Speakers from "./pages/speakers";
    <Provider store={store}>
     <Router history={history}>
       <div>
+        <Collection/>
         <Route path="/" exact component={Home}/>
         <Route path="/speakers" component={Speakers}/>
       </div>

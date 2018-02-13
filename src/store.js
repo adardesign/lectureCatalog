@@ -1,19 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { createStore, combineReducers } from 'redux'
-import { Provider } from 'react-redux'
-import { Router, Route, browserHistory } from 'react-router'
+import React from "react";
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import { createStore, combineReducers } from 'redux'
+import { browserHistory } from 'react-router'
 
-import reducers from '<project-path>/reducers'
+import speakers from "./reducers/speakers"; 
+import categories from "./reducers/categories";
 
 // Add the reducer to your store on the `routing` key
-const store = createStore(
-  combineReducers({
-    ...reducers,
-    routing: routerReducer
-  })
-)
+
 
 const defaultState = {
 	speakers:[
@@ -37,5 +31,16 @@ const defaultState = {
   ]
 };
 
-export const store = createStore(rootReducer, defaultState);
-const history = syncHistoryWithStore(browserHistory, store)
+
+export const store = createStore(
+  combineReducers({
+    speakers,
+    categories,
+    routing: routerReducer
+  }),
+  defaultState
+);
+
+// Create an enhanced history that syncs navigation events with the store
+export const history = syncHistoryWithStore(browserHistory, store)
+
