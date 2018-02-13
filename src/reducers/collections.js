@@ -1,5 +1,6 @@
-export default function speakers(state = [], action) {
-  console.log("speaker STATE-IS---",JSON.stringify(state), action);
+// this is not mapping to a state
+export default function collections(state = [], action) {
+  console.log("Collections STATE-IS---",JSON.stringify(state), action);
   switch (action.type) {
     case "FOLLOW-SPEAKER":
       console.log("FOLLOW-SPEAKER is running");

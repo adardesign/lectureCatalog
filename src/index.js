@@ -17,7 +17,6 @@ import Speakers from "./pages/speakers";
    <Provider store={store}>
     <Router history={history}>
       <div>
-        <Collection/>
         <Route path="/" exact component={Home}/>
         <Route path="/speakers" component={Speakers}/>
       </div>

@@ -9,6 +9,11 @@ class Categories extends Component {
         
     }
     render() {
+      
+        if (!this.props.categories) {
+            return <div> Loading...</div>
+        }
+
         if (this.props.hasErrored) {
             return <p>Sorry! There was an error loading the items</p>;
         }

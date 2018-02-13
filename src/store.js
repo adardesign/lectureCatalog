@@ -3,8 +3,7 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { createStore, combineReducers } from 'redux'
 import { browserHistory } from 'react-router'
 
-import speakers from "./reducers/speakers"; 
-import categories from "./reducers/categories";
+import rootReducer from "./reducers/index"
 
 // Add the reducer to your store on the `routing` key
 
@@ -31,16 +30,7 @@ const defaultState = {
   ]
 };
 
-
-export const store = createStore(
-  combineReducers({
-    speakers,
-    categories,
-    routing: routerReducer
-  }),
-  defaultState
-);
-
+export const store = createStore(rootReducer, defaultState);
 // Create an enhanced history that syncs navigation events with the store
 export const history = syncHistoryWithStore(browserHistory, store);
 
